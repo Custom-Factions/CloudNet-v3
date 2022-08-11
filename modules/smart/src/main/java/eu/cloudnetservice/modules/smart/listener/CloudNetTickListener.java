@@ -20,6 +20,7 @@ import eu.cloudnetservice.common.collection.Pair;
 import eu.cloudnetservice.driver.event.EventListener;
 import eu.cloudnetservice.driver.provider.CloudServiceFactory;
 import eu.cloudnetservice.driver.service.ServiceConfiguration;
+import eu.cloudnetservice.driver.service.ServiceCreateResult;
 import eu.cloudnetservice.driver.service.ServiceInfoSnapshot;
 import eu.cloudnetservice.driver.service.ServiceLifeCycle;
 import eu.cloudnetservice.driver.service.ServiceTask;
@@ -67,11 +68,11 @@ public final class CloudNetTickListener {
         // get all services of the task
         var services = this.serviceManager().servicesByTask(task.name());
         // get all prepared services
-        Collection<ServiceInfoSnapshot> preparedServices = services.stream()
+        var preparedServices = services.stream()
           .filter(service -> service.lifeCycle() == ServiceLifeCycle.PREPARED)
           .collect(Collectors.toSet());
         // get all running services
-        Collection<ServiceInfoSnapshot> runningServices = services.stream()
+        var runningServices = services.stream()
           .filter(service -> service.lifeCycle() == ServiceLifeCycle.RUNNING)
           .collect(Collectors.toSet());
         // get all services which are marked as online by the bridge
@@ -194,9 +195,10 @@ public final class CloudNetTickListener {
       server = this.selectNodeServer(services);
     }
     // create a new service based on the task
-    return this.serviceFactory().createCloudService(ServiceConfiguration.builder(task)
+    var createResult = this.serviceFactory().createCloudService(ServiceConfiguration.builder(task)
       .node(server == null ? null : server.info().uniqueId())
       .build());
+    return createResult.state() == ServiceCreateResult.State.CREATED ? createResult.serviceInfo() : null;
   }
 
   private @Nullable NodeServer selectNodeServer(@NonNull Collection<ServiceInfoSnapshot> services) {
