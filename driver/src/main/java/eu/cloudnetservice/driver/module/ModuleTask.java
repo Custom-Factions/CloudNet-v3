@@ -51,8 +51,8 @@ public @interface ModuleTask {
   byte order() default 32;
 
   /**
-   * Get the module lifecycle in which this task should be fired. Please note that tasks targeting the lifecycle {@link
-   * ModuleLifeCycle#UNUSABLE} will be registered but never fired.
+   * Get the module lifecycle in which this task should be fired. Please note that tasks targeting the lifecycle
+   * {@link ModuleLifeCycle#UNUSABLE} will be registered but never fired.
    * <p>This property defaults to {@link ModuleLifeCycle#STARTED}</p>
    *
    * @return the module lifecycle in which this task should be fired.

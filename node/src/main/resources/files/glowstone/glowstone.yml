@@ -15,7 +15,7 @@ server:
   motd: A CloudNet provided Glowstone server
   shutdown-message: Server shutting down.
   allow-client-mods: true
-  dns: []
+  dns: [ ]
   snooper-enabled: false
   prevent-proxy-connections: true
 console:
@@ -101,4 +101,4 @@ libraries:
   repository-url: https://repo.glowstone.net/repository/maven-public/
   download-attempts: 2
   compatibility-bundle: CRAFTBUKKIT
-  list: []
+  list: [ ]

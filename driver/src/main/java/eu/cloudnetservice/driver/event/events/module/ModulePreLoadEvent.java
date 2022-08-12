@@ -23,9 +23,9 @@ import eu.cloudnetservice.driver.module.ModuleWrapper;
 import lombok.NonNull;
 
 /**
- * This event is being called after a module has been loaded and before the tasks with the lifecycle {@link
- * ModuleLifeCycle#LOADED} of this module have been fired. {@link ModuleWrapper#moduleLifeCycle()} is still {@link
- * ModuleLifeCycle#UNLOADED}.
+ * This event is being called after a module has been loaded and before the tasks with the lifecycle
+ * {@link ModuleLifeCycle#LOADED} of this module have been fired. {@link ModuleWrapper#moduleLifeCycle()} is still
+ * {@link ModuleLifeCycle#UNLOADED}.
  *
  * @since 4.0
  */

@@ -29,7 +29,7 @@ public record SyncProxyLoginConfiguration(
   @NonNull String targetGroup,
   boolean maintenance,
   int maxPlayers,
-  @Unmodifiable  @NonNull Set<String> whitelist,
+  @Unmodifiable @NonNull Set<String> whitelist,
   @Unmodifiable @NonNull List<SyncProxyMotd> motds,
   @Unmodifiable @NonNull List<SyncProxyMotd> maintenanceMotds
 ) {

@@ -25,8 +25,8 @@ import lombok.NonNull;
  * The command source represents a message receiving object. All messages regarding command execution and command
  * parsing are sent to the command source.
  * <p>
- * The console has its own CommandSource. If you want to use the console CommandSource use the jvm static {@link
- * CommandSource#console()} method.
+ * The console has its own CommandSource. If you want to use the console CommandSource use the jvm static
+ * {@link CommandSource#console()} method.
  *
  * @see DriverCommandSource
  * @see PermissionUserCommandSource

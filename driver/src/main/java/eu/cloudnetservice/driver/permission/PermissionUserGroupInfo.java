@@ -142,8 +142,8 @@ public class PermissionUserGroupInfo extends JsonDocPropertyHolder {
     }
 
     /**
-     * Sets the time-out for this group info. The time-out is added to the current time millis {@link
-     * System#currentTimeMillis()}.
+     * Sets the time-out for this group info. The time-out is added to the current time millis
+     * {@link System#currentTimeMillis()}.
      *
      * @param duration the duration the group lasts for.
      * @return the same instance as used to call the method, for chaining.

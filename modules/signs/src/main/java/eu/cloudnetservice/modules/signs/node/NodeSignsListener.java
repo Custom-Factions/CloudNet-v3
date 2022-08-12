@@ -103,8 +103,9 @@ public class NodeSignsListener {
           event.binaryResponse(DataBuf.empty().writeObject(signs));
         }
         // set the sign configuration without a re-publish to the cluster
-        case NodeSignManagement.NODE_TO_NODE_SET_SIGN_CONFIGURATION -> this.signManagement.handleInternalSignConfigUpdate(
-          event.content().readObject(SignsConfiguration.class));
+        case NodeSignManagement.NODE_TO_NODE_SET_SIGN_CONFIGURATION ->
+          this.signManagement.handleInternalSignConfigUpdate(
+            event.content().readObject(SignsConfiguration.class));
         default -> {
         }
       }

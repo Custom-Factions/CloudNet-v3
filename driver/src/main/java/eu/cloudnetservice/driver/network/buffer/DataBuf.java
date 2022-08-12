@@ -231,8 +231,8 @@ public interface DataBuf extends AutoCloseable {
   <T> T readObject(@NonNull Type type);
 
   /**
-   * Reads the next requested data from the buffer. This method call is equivalent to {@code
-   * readNullable(readerWhenNonNull, null)}.
+   * Reads the next requested data from the buffer. This method call is equivalent to
+   * {@code readNullable(readerWhenNonNull, null)}.
    *
    * @param readerWhenNonNull the reader to read the data from the buffer when the next value is non-null.
    * @param <T>               the generic type of the data to read.

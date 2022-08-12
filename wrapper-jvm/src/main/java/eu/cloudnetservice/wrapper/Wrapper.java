@@ -264,8 +264,8 @@ public class Wrapper extends CloudNetDriver {
   }
 
   /**
-   * Creates a new service snapshot of this service using the provided properties for the new snapshot.
-   * Only the creation time and process snapshot and properties of the new snapshot differ from the old snapshot.
+   * Creates a new service snapshot of this service using the provided properties for the new snapshot. Only the
+   * creation time and process snapshot and properties of the new snapshot differ from the old snapshot.
    * <p>
    * Changes made to the current service snapshot (like modifying the properties of it) will not reflect into the
    * snapshot returned by this method.

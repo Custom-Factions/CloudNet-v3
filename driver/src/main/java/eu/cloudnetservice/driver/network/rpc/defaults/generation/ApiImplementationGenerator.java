@@ -84,9 +84,6 @@ public final class ApiImplementationGenerator {
     Type.getType(RPC.class),
     Type.getType(String.class),
     Type.getType(Object[].class));
-  private static final String CONSTRUCTOR_SENDER_DESC = Type.getMethodDescriptor(
-    Type.VOID_TYPE,
-    Type.getType(RPCSender.class));
   // executable stuff
   static final String EXECUTABLE_NAME = Type.getInternalName(RPCExecutable.class);
   static final String EXECUTABLE_FIRE_FORGET = Type.getMethodDescriptor(Type.VOID_TYPE);
@@ -108,6 +105,9 @@ public final class ApiImplementationGenerator {
       && !method.isBridge()
       && !method.isAnnotationPresent(RPCIgnore.class);
   };
+  private static final String CONSTRUCTOR_SENDER_DESC = Type.getMethodDescriptor(
+    Type.VOID_TYPE,
+    Type.getType(RPCSender.class));
 
   private ApiImplementationGenerator() {
     throw new UnsupportedOperationException();

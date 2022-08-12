@@ -37,10 +37,9 @@ import org.jetbrains.annotations.Nullable;
 @EqualsAndHashCode(callSuper = false)
 public class CloudPlayer extends CloudOfflinePlayer {
 
+  protected final NetworkPlayerProxyInfo networkPlayerProxyInfo;
   protected NetworkServiceInfo loginService;
   protected NetworkServiceInfo connectedService;
-
-  protected final NetworkPlayerProxyInfo networkPlayerProxyInfo;
   protected NetworkPlayerServerInfo networkPlayerServerInfo;
 
   protected JsonDocument onlineProperties;

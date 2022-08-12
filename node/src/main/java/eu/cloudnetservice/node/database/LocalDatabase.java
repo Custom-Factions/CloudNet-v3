@@ -35,8 +35,8 @@ public interface LocalDatabase extends Database {
   @NonNull Map<String, JsonDocument> filter(@NonNull BiPredicate<String, JsonDocument> predicate);
 
   /**
-   * Iterates over all entries in the database This option should not be used with big databases Use {@link
-   * #iterate(BiConsumer, int)}} instead
+   * Iterates over all entries in the database This option should not be used with big databases Use
+   * {@link #iterate(BiConsumer, int)}} instead
    *
    * @param consumer the consumer to pass the entries into
    */

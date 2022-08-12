@@ -63,8 +63,8 @@ public enum PermissionCheckResult {
   }
 
   /**
-   * Converts the nullable boolean into a permission check result. If the given boolean is null the result is {@code
-   * DENIED}, if the boolean is true then {@code ALLOWED}, {@code FORBIDDEN} otherwise.
+   * Converts the nullable boolean into a permission check result. If the given boolean is null the result is
+   * {@code DENIED}, if the boolean is true then {@code ALLOWED}, {@code FORBIDDEN} otherwise.
    *
    * @param value the boolean to convert
    * @return the converted check result.
@@ -74,8 +74,8 @@ public enum PermissionCheckResult {
   }
 
   /**
-   * Converts the given permission into a permission check result. If the permission is null the result is {@code
-   * DENIED}, a potency that is not negative results in a {@code ALLOWED}, {@code FORBIDDEN} otherwise.
+   * Converts the given permission into a permission check result. If the permission is null the result is
+   * {@code DENIED}, a potency that is not negative results in a {@code ALLOWED}, {@code FORBIDDEN} otherwise.
    *
    * @param permission the permission to convert.
    * @return the converted check result.

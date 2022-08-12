@@ -141,8 +141,8 @@ public class MethodInformation {
   }
 
   /**
-   * Get the raw return type of the underlying method. For example a method with a return type of {@code
-   * Collection&lt;String&gt;} would result in {@code Collection}.
+   * Get the raw return type of the underlying method. For example a method with a return type of
+   * {@code Collection&lt;String&gt;} would result in {@code Collection}.
    *
    * @return the raw return type of the method.
    */

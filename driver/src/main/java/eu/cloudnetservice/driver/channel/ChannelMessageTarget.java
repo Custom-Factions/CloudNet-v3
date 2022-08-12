@@ -123,8 +123,8 @@ public class ChannelMessageTarget {
    * @param name optional name of the component with the given type to target.
    * @return the created ChannelMessageTarget.
    * @throws NullPointerException     if given type is null.
-   * @throws IllegalArgumentException if type is ENVIRONMENT. For that purpose use {@link #environment(ServiceEnvironmentType)}
-   *                                  instead.
+   * @throws IllegalArgumentException if type is ENVIRONMENT. For that purpose use
+   *                                  {@link #environment(ServiceEnvironmentType)} instead.
    */
   public static @NonNull ChannelMessageTarget of(@NonNull Type type, @Nullable String name) {
     Preconditions.checkArgument(type != Type.ENVIRONMENT, "Unable to target environment using name");

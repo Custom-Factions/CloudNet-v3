@@ -14,20 +14,16 @@
  * limitations under the License.
  */
 
-package eu.cloudnetservice.common.collection;
+package eu.cloudnetservice.node.service.defaults.config;
 
-import org.jetbrains.annotations.UnknownNullability;
+import eu.cloudnetservice.node.Node;
+import eu.cloudnetservice.node.service.CloudService;
+import lombok.NonNull;
 
-/**
- * This pair wraps two values, that are allowed to have different types, into a pair allowing accessing both using
- * {@link #first()} and {@link #second()}.
- *
- * @param first  the first value of the pair.
- * @param second the second value of the pair.
- * @param <F>    the type of the first value.
- * @param <S>    the type of the second value.
- * @since 4.0
- */
-public record Pair<F, S>(@UnknownNullability F first, @UnknownNullability S second) {
+public class MinestomServiceConfigurationPreparer extends AbstractServiceConfigurationPreparer {
 
+  @Override
+  public void configure(@NonNull Node nodeInstance, @NonNull CloudService cloudService) {
+
+  }
 }

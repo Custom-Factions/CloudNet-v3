@@ -121,8 +121,8 @@ public class Task<V> extends CompletableFuture<V> {
 
   /**
    * This blocks the calling thread until the result of the task is available. If any exception occurs during the
-   * execution of the task or the task is cancelled null is returned as result. This method is equivalent to {@code
-   * task.getDef(null)}.
+   * execution of the task or the task is cancelled null is returned as result. This method is equivalent to
+   * {@code task.getDef(null)}.
    *
    * @return the completed result of this task, null if any exception occurred.
    */

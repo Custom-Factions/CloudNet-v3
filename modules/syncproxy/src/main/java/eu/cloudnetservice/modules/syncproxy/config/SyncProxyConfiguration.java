@@ -122,7 +122,8 @@ public record SyncProxyConfiguration(
       return this;
     }
 
-    public @NonNull Builder modifyTabListConfigurations(@NonNull Consumer<Set<SyncProxyTabListConfiguration>> modifier) {
+    public @NonNull Builder modifyTabListConfigurations(
+      @NonNull Consumer<Set<SyncProxyTabListConfiguration>> modifier) {
       modifier.accept(this.tabListConfigurations);
       return this;
     }

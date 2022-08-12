@@ -44,6 +44,7 @@ import eu.cloudnetservice.node.service.CloudServiceManager;
 import eu.cloudnetservice.node.service.ServiceConfigurationPreparer;
 import eu.cloudnetservice.node.service.defaults.config.BungeeConfigurationPreparer;
 import eu.cloudnetservice.node.service.defaults.config.GlowstoneConfigurationPreparer;
+import eu.cloudnetservice.node.service.defaults.config.MinestomServiceConfigurationPreparer;
 import eu.cloudnetservice.node.service.defaults.config.NukkitConfigurationPreparer;
 import eu.cloudnetservice.node.service.defaults.config.VanillaServiceConfigurationPreparer;
 import eu.cloudnetservice.node.service.defaults.config.VelocityConfigurationPreparer;
@@ -106,6 +107,7 @@ public class DefaultCloudServiceManager implements CloudServiceManager {
     this.addServicePreparer(ServiceEnvironmentType.WATERDOG_PE, new WaterdogPEConfigurationPreparer());
     this.addServicePreparer(ServiceEnvironmentType.MINECRAFT_SERVER, new VanillaServiceConfigurationPreparer());
     this.addServicePreparer(ServiceEnvironmentType.MODDED_MINECRAFT_SERVER, new VanillaServiceConfigurationPreparer());
+    this.addServicePreparer(ServiceEnvironmentType.MINESTOM, new MinestomServiceConfigurationPreparer());
     // cluster data sync
     nodeInstance.dataSyncRegistry().registerHandler(
       DataSyncHandler.<ServiceInfoSnapshot>builder()

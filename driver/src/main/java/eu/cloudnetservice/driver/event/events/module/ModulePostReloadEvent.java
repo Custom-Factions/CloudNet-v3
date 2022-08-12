@@ -22,9 +22,9 @@ import eu.cloudnetservice.driver.module.ModuleWrapper;
 import lombok.NonNull;
 
 /**
- * This event is being called after a module has been reloaded and the tasks with the lifecycle {@link
- * ModuleLifeCycle#RELOADING} of this module have been fired. {@link ModuleWrapper#moduleLifeCycle()} is still {@link
- * ModuleLifeCycle#STARTED}.
+ * This event is being called after a module has been reloaded and the tasks with the lifecycle
+ * {@link ModuleLifeCycle#RELOADING} of this module have been fired. {@link ModuleWrapper#moduleLifeCycle()} is still
+ * {@link ModuleLifeCycle#STARTED}.
  *
  * @since 4.0
  */

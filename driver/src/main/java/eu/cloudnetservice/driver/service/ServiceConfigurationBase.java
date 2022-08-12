@@ -300,10 +300,10 @@ public abstract class ServiceConfigurationBase extends JsonDocPropertyHolder {
     }
 
     /**
-     * Modifies the inclusions which should get loaded onto a service created based on the service configuration before it
-     * starts. Inclusions get cached based on their download url. If you need a clean copy of your inclusion you should
-     * change the download url of it. If the node is unable to download an inclusion based on the given url it will be
-     * ignored and a warning gets printed into the console.
+     * Modifies the inclusions which should get loaded onto a service created based on the service configuration before
+     * it starts. Inclusions get cached based on their download url. If you need a clean copy of your inclusion you
+     * should change the download url of it. If the node is unable to download an inclusion based on the given url it
+     * will be ignored and a warning gets printed into the console.
      *
      * @param modifier the modifier to be applied to the already added inclusions of this builder.
      * @return the same instance as used to call the method, for chaining.

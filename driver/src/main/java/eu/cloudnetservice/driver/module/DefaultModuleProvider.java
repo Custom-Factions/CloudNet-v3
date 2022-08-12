@@ -67,8 +67,8 @@ public class DefaultModuleProvider implements ModuleProvider {
    * Creates a new default module provider by calling with the default library directory and the default dependency
    * loader.
    * <p>
-   * The default library directory is {@link #DEFAULT_LIB_DIR}. The default dependency loader is {@link
-   * #DEFAULT_DEP_LOADER}
+   * The default library directory is {@link #DEFAULT_LIB_DIR}. The default dependency loader is
+   * {@link #DEFAULT_DEP_LOADER}
    */
   public DefaultModuleProvider() {
     this(DEFAULT_MODULE_DIR, DEFAULT_DEP_LOADER);

@@ -41,7 +41,13 @@ public abstract class DefaultCachedPermissionManagement extends DefaultPermissio
   protected final Map<UUID, AtomicInteger> permissionUserLocks = new ConcurrentHashMap<>();
   protected final Map<String, AtomicInteger> permissionGroupLocks = new ConcurrentHashMap<>();
 
-  // holds all cached permission users and tries to unload them after 5 minutes of inactivity
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public @NonNull Map<UUID, PermissionUser> cachedPermissionUsers() {
+    return this.permissionUserCache.asMap();
+  }  // holds all cached permission users and tries to unload them after 5 minutes of inactivity
   // will be prevented if a lock is known for the given player object, for example when connected
   protected final Cache<UUID, PermissionUser> permissionUserCache = Caffeine.newBuilder()
     .expireAfterAccess(5, TimeUnit.MINUTES)
@@ -51,22 +57,6 @@ public abstract class DefaultCachedPermissionManagement extends DefaultPermissio
       }
     })
     .build();
-  // holds all cached permission groups, removes will get blocked if a lock for a group was obtained
-  protected final Cache<String, PermissionGroup> permissionGroupCache = Caffeine.newBuilder()
-    .removalListener((key, value, cause) -> {
-      if (key != null && value != null) {
-        this.handleGroupRemove((String) key, (PermissionGroup) value, cause);
-      }
-    })
-    .build();
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
-  public @NonNull Map<UUID, PermissionUser> cachedPermissionUsers() {
-    return this.permissionUserCache.asMap();
-  }
 
   /**
    * {@inheritDoc}
@@ -74,7 +64,14 @@ public abstract class DefaultCachedPermissionManagement extends DefaultPermissio
   @Override
   public @NonNull Map<String, PermissionGroup> cachedPermissionGroups() {
     return this.permissionGroupCache.asMap();
-  }
+  }  // holds all cached permission groups, removes will get blocked if a lock for a group was obtained
+  protected final Cache<String, PermissionGroup> permissionGroupCache = Caffeine.newBuilder()
+    .removalListener((key, value, cause) -> {
+      if (key != null && value != null) {
+        this.handleGroupRemove((String) key, (PermissionGroup) value, cause);
+      }
+    })
+    .build();
 
   /**
    * {@inheritDoc}
@@ -195,4 +192,8 @@ public abstract class DefaultCachedPermissionManagement extends DefaultPermissio
       this.permissionGroupCache.put(key, group);
     }
   }
+
+
+
+
 }

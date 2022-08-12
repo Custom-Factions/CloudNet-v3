@@ -51,8 +51,8 @@ public class PermissionGroup extends AbstractPermissible {
   private final Set<String> groups;
 
   /**
-   * Constructs a new permission group. The group is not saved or updated in any way before {@link
-   * PermissionManagement#addPermissionGroup(PermissionGroup)} is called.
+   * Constructs a new permission group. The group is not saved or updated in any way before
+   * {@link PermissionManagement#addPermissionGroup(PermissionGroup)} is called.
    *
    * @param color            the color of the group.
    * @param prefix           the prefix of the group.

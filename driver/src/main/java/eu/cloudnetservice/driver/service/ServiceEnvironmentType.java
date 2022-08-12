@@ -111,6 +111,7 @@ public class ServiceEnvironmentType extends JsonDocPropertyHolder implements Nam
    * The minestom service environment type. This applies to all services which are a server minestom instance allowing
    * extensions running on it.
    */
+
   public static final ServiceEnvironmentType MINESTOM = ServiceEnvironmentType.builder()
     .name("MINESTOM")
     .properties(JsonDocument.newDocument().property(JAVA_SERVER, true).property(PLUGIN_DIR, "extensions"))
