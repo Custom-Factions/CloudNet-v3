@@ -46,17 +46,10 @@ public abstract class DefaultCachedPermissionManagement extends DefaultPermissio
    */
   @Override
   public @NonNull Map<UUID, PermissionUser> cachedPermissionUsers() {
+    // holds all cached permission users and tries to unload them after 5 minutes of inactivity
     return this.permissionUserCache.asMap();
-  }  // holds all cached permission users and tries to unload them after 5 minutes of inactivity
-  // will be prevented if a lock is known for the given player object, for example when connected
-  protected final Cache<UUID, PermissionUser> permissionUserCache = Caffeine.newBuilder()
-    .expireAfterAccess(5, TimeUnit.MINUTES)
-    .removalListener((key, value, cause) -> {
-      if (key != null && value != null) {
-        this.handleUserRemove((UUID) key, (PermissionUser) value, cause);
-      }
-    })
-    .build();
+  }
+
 
   /**
    * {@inheritDoc}
@@ -64,11 +57,13 @@ public abstract class DefaultCachedPermissionManagement extends DefaultPermissio
   @Override
   public @NonNull Map<String, PermissionGroup> cachedPermissionGroups() {
     return this.permissionGroupCache.asMap();
-  }  // holds all cached permission groups, removes will get blocked if a lock for a group was obtained
-  protected final Cache<String, PermissionGroup> permissionGroupCache = Caffeine.newBuilder()
+  }  // holds all cached permission groups, removes will get blocked if a lock for a group was obtained  // will be prevented if a lock is known for the given player object, for example when connected
+
+  protected final Cache<UUID, PermissionUser> permissionUserCache = Caffeine.newBuilder()
+    .expireAfterAccess(5, TimeUnit.MINUTES)
     .removalListener((key, value, cause) -> {
       if (key != null && value != null) {
-        this.handleGroupRemove((String) key, (PermissionGroup) value, cause);
+        this.handleUserRemove((UUID) key, (PermissionUser) value, cause);
       }
     })
     .build();
@@ -88,6 +83,14 @@ public abstract class DefaultCachedPermissionManagement extends DefaultPermissio
   public @Nullable PermissionGroup cachedGroup(@NonNull String name) {
     return this.permissionGroupCache.getIfPresent(name);
   }
+
+  protected final Cache<String, PermissionGroup> permissionGroupCache = Caffeine.newBuilder()
+    .removalListener((key, value, cause) -> {
+      if (key != null && value != null) {
+        this.handleGroupRemove((String) key, (PermissionGroup) value, cause);
+      }
+    })
+    .build();
 
   /**
    * {@inheritDoc}
@@ -192,8 +195,4 @@ public abstract class DefaultCachedPermissionManagement extends DefaultPermissio
       this.permissionGroupCache.put(key, group);
     }
   }
-
-
-
-
 }
